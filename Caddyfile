@@ -4,9 +4,9 @@
 
 :3000
 
-# handle /api/* {
-#   reverse_proxy localhost:{$ACTIX_SERVER_PORT}
-# }
+handle /rs/* {
+  reverse_proxy localhost:{$ACTIX_SERVER_PORT}
+}
 
 handle {
   reverse_proxy localhost:{$VITE_DEV_SERVER_PORT}

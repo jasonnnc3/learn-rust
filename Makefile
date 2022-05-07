@@ -16,9 +16,9 @@ dev-client: pnpm-install
 	@$(EXIT_ON_ERROR) pnpm dev
 
 .PHONY: dev-server
-export ACTIX_SERVER_PORT := 3002
+export ACTIX_SERVER_PORT := 8080
 dev-server:
-	@$(EXIT_ON_ERROR) echo "todo"
+	@$(EXIT_ON_ERROR) cd server && cargo run
 
 .PHONY: dev-caddy-reverse-proxy
 dev-caddy-reverse-proxy:
