@@ -10,11 +10,11 @@ fn spawn_app() -> String {
 }
 
 #[tokio::test]
-async fn healthcheck_works() {
+async fn health_check_works() {
     let app_address = spawn_app();
     let client = reqwest::Client::new();
     let response = client
-        .get(&format!("{}/healthcheck", &app_address))
+        .get(&format!("{}/health_check", &app_address))
         .send()
         .await
         .expect("Failed to execute request");
