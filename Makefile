@@ -5,7 +5,7 @@ pnpm-install:
 	@$(EXIT_ON_ERROR) pnpm install
 
 .PHONY: dev
-dev: dev-client dev-server dev-caddy-reverse-proxy dev-cockroachdb-cluster
+dev: dev-client dev-server dev-caddy-reverse-proxy
 
 .PHONY: dev-client
 export VITE_DEV_SERVER_PORT := 3001
@@ -20,15 +20,6 @@ dev-server:
 .PHONY: dev-caddy-reverse-proxy
 dev-caddy-reverse-proxy:
 	@$(EXIT_ON_ERROR) caddy run
-
-
-.PHONY: dev-cockroachdb-cluster
-export COCKROACHDB_LOCALHOST_PORT := 5000
-dev-cockroachdb-cluster:
-	@$(EXIT_ON_ERROR) cockroach start-single-node \
-		--insecure \
-		--listen-addr=localhost:26257 \
-		--http-addr=localhost:$(COCKROACHDB_LOCALHOST_PORT)
 
 # ----- testing --------
 

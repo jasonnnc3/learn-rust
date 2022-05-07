@@ -38,8 +38,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# cockroachdb single node dev setup https://www.cockroachlabs.com/docs/v21.2/cockroach-start-single-node#start-a-single-node-cluster
-certs
-my-safe-directory
-cockroach-data/
