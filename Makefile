@@ -5,7 +5,7 @@ pnpm-install:
 	@$(EXIT_ON_ERROR) pnpm install
 
 .PHONY: dev
-dev: dev-client dev-server dev-caddy-reverse-proxy
+dev: dev-client dev-server dev-caddy-reverse-proxy dev-postgres
 
 .PHONY: dev-client
 export VITE_DEV_SERVER_PORT := 3001
@@ -22,6 +22,10 @@ dev-server:
 .PHONY: dev-caddy-reverse-proxy
 dev-caddy-reverse-proxy:
 	@$(EXIT_ON_ERROR) caddy run
+
+.PHONY: dev-postgres
+dev-postgres:
+	-./scripts/init_pg.sh
 
 # ----- testing --------
 
