@@ -13,10 +13,9 @@ async fn main() -> std::io::Result<()> {
     env_logger::init();
 
     HttpServer::new(|| {
-        App::new().wrap(Logger::default()).service(
-            web::scope("/actix")
-                .service(web::resource("/").to(|| async { HelloTemplate { name: "world" } })),
-        )
+        App::new()
+            .wrap(Logger::default())
+            .service(web::resource("/").to(|| async { HelloTemplate { name: "world" } }))
     })
     .bind(("127.0.0.1", 4000))?
     .run()
