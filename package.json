@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "learn-rust",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,7 +8,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "typescript": "^4.5.4",
-    "vite": "^2.9.7"
+    "typescript": "4.6.4",
+    "vite": "2.9.8"
+  },
+  "dependencies": {
+    "@types/node": "16.11.33"
   }
 }
