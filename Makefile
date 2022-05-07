@@ -1,6 +1,3 @@
-# if this throws, run "touch ~/.env.local" in terminal
-include ~/.env.local
-
 EXIT_ON_ERROR = set -e;
 
 .PHONY: pnpm-install
