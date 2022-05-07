@@ -5,9 +5,9 @@
 :3000
 
 # todo: create vite/actix interop after zero2prod
-handle {
-  reverse_proxy localhost:{$VITE_DEV_SERVER_PORT}
-}
+# handle {
+#   reverse_proxy localhost:{$VITE_DEV_SERVER_PORT}
+# }
 
 handle {
   reverse_proxy localhost:{$ACTIX_SERVER_PORT}
