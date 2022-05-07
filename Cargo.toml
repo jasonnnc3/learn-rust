@@ -20,6 +20,7 @@ actix-web = "4.0.1"
 askama = { git = "https://github.com/djc/askama", branch = "main" }
 askama_actix = { git = "https://github.com/djc/askama", branch = "main" }
 serde = { version = "1", features = ["derive"] }
+config = "0.11"
 
 [dependencies.sqlx]
 version = "0.5.7"
