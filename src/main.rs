@@ -2,17 +2,10 @@ use actix_web::middleware::Logger;
 use actix_web::{web, App, HttpServer};
 use askama_actix::Template;
 
-// async fn index(data: web::Data<AppState>) -> String {
-//     let app_name = &data.app_name;
-//     format!("Hello {}!", app_name)
-// }
-
-#[derive(Template)] // this will generate the code...
-#[template(path = "hello.html")] // using the template in this path, relative
+#[derive(Template)]
+#[template(path = "hello.html")]
 struct HelloTemplate<'a> {
-    // the name of the struct can be anything
-    name: &'a str, // the field name should match the variable name
-                   // in your template
+    name: &'a str,
 }
 
 #[actix_web::main]
