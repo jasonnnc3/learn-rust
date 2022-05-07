@@ -17,7 +17,7 @@ export ACTIX_SERVER_PORT := 4000
 export RUST_LOG=debug
 export RUST_ENV=development
 dev-server:
-	@$(EXIT_ON_ERROR) cargo watch -x 'run'
+	@$(EXIT_ON_ERROR) cargo watch -x test -x run
 
 .PHONY: dev-caddy-reverse-proxy
 dev-caddy-reverse-proxy:
