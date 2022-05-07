@@ -8,6 +8,10 @@ handle /actix/* {
   reverse_proxy localhost:{$ACTIX_SERVER_PORT}
 }
 
+handle /db {
+  reverse_proxy localhost:{$COCKROACHDB_LOCALHOST_PORT}
+}
+
 handle {
   reverse_proxy localhost:{$VITE_DEV_SERVER_PORT}
 }
