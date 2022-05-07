@@ -1,10 +1,5 @@
-name: rust security audit
-
+name: security audit cron
 on:
-  push:
-    paths:
-      - '**/Cargo.toml'
-      - '**/Cargo.lock'
   schedule:
     - cron: '0 0 * * *'
 jobs:
