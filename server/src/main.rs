@@ -1,4 +1,4 @@
-use actix_web::{get, web, App, HttpServer};
+use actix_web::{web, App, HttpServer};
 
 struct AppState {
     app_name: String,
@@ -18,7 +18,7 @@ async fn main() -> std::io::Result<()> {
             }))
             .service(web::scope("/actix").route("/", web::get().to(index)))
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind(("127.0.0.1", 4000))?
     .run()
     .await
 }

@@ -13,7 +13,7 @@ dev-client: pnpm-install
 	@$(EXIT_ON_ERROR) pnpm dev
 
 .PHONY: dev-server
-export ACTIX_SERVER_PORT := 8080
+export ACTIX_SERVER_PORT := 4000
 dev-server:
 	@$(EXIT_ON_ERROR) cd server && cargo watch -x 'run'
 
