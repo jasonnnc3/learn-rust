@@ -14,8 +14,9 @@ dev-client: pnpm-install
 
 .PHONY: dev-server
 export ACTIX_SERVER_PORT := 4000
+export RUST_LOG=debug
 dev-server:
-	@$(EXIT_ON_ERROR) cd server && cargo watch -x 'run'
+	@$(EXIT_ON_ERROR) cargo watch -x 'run'
 
 .PHONY: dev-caddy-reverse-proxy
 dev-caddy-reverse-proxy:
