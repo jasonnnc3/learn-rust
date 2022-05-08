@@ -4,7 +4,7 @@
 
 :3000
 
-# todo: create vite/actix interop after zero2prod
+# todo: create vite/actix interop after learnrust
 # handle {
 #   reverse_proxy localhost:{$VITE_DEV_SERVER_PORT}
 # }

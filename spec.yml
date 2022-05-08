@@ -1,7 +1,7 @@
-name: zero2prod
+name: learnrust
 region: sfo
 services:
-  - name: zero2prod
+  - name: learnrust
     http_port: 8000
     instance_count: 1
     instance_size_slug: basic-xxs
