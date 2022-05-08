@@ -20,7 +20,7 @@ reqwest = { version = "0.11", default-features = false, features = ["json", "rus
 secrecy = { version = "0.8", features = ["serde"] }
 serde = { version = "1", features = ["derive"] }
 serde-aux = "3"
-tokio = { version = "1", features = ["full"] }
+tokio = { version = "1", features = ["rt", "macros"] }
 tracing = { version = "0.1", features = ["log"] }
 tracing-actix-web = "0.5"
 tracing-bunyan-formatter = "0.3"
