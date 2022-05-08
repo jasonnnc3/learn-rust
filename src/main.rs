@@ -1,13 +1,13 @@
-use learnrust::configuration::get_configuration;
-use learnrust::email_client::EmailClient;
-use learnrust::root::run;
-use learnrust::telemetry::{get_subscriber, init_subscriber};
 use sqlx::postgres::PgPoolOptions;
 use std::net::TcpListener;
+use zero2prod::configuration::get_configuration;
+use zero2prod::email_client::EmailClient;
+use zero2prod::root::run;
+use zero2prod::telemetry::{get_subscriber, init_subscriber};
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
-    let subscriber = get_subscriber("learnrust".into(), "info".into(), std::io::stdout);
+    let subscriber = get_subscriber("zero2prod".into(), "info".into(), std::io::stdout);
     init_subscriber(subscriber);
 
     let configuration = get_configuration().expect("Failed to read configuration.");

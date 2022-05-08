@@ -22,7 +22,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-#.env* # apparently commiting it for now: learnrust pg 78
+#.env* # apparently commiting it for now: zero2prod pg 78
 
 # Editor directories and files
 .vscode/*
