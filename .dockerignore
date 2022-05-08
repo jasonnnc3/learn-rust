@@ -1,2 +1,7 @@
-target
-node_modules
+.env
+target/
+tests/
+Dockerfile
+scripts/
+migrations/
+node_modules/
