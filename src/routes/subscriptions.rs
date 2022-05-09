@@ -187,10 +187,7 @@ VALUES ($1, $2, $3, $4, 'pending_confirmation')
     )
     .execute(transaction)
     .await
-    .map_err(|e| {
-        tracing::error!("Failed to execute query: {:?}", e);
-        e
-    })?;
+    .map_err(|e| e)?;
     Ok(subscriber_id)
 }
 
