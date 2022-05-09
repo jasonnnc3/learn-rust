@@ -12,6 +12,7 @@ name = "zero2prod"
 
 [dependencies]
 actix-web = "4.0.1"
+anyhow = "1"
 askama = { git = "https://github.com/djc/askama", branch = "main" }
 askama_actix = { git = "https://github.com/djc/askama", branch = "main" }
 chrono = "0.4.15"
