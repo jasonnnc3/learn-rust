@@ -1,7 +1,4 @@
 use crate::helpers::spawn_app;
-use sqlx::{PgConnection, PgPool};
-use zero2prod::configuration::DatabaseSettings;
-use zero2prod::telemetry::init_subscriber;
 
 #[tokio::test]
 async fn subscribe_returns_a_200_for_valid_form_data() {

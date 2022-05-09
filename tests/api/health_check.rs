@@ -1,5 +1,4 @@
 use crate::helpers::spawn_app;
-use sqlx::{Executor, PgConnection, PgPool};
 
 #[tokio::test]
 async fn health_check_works() {
