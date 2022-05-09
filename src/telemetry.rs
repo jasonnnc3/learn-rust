@@ -6,7 +6,11 @@ use tracing_subscriber::fmt::MakeWriter;
 use tracing_subscriber::layer::SubscriberExt;
 use tracing_subscriber::{EnvFilter, Registry};
 
-pub fn get_subscriber<Sink>(name: String, env_filter: String, sink: Sink) -> impl Subscriber + Sync + Send
+pub fn get_subscriber<Sink>(
+  name: String,
+  env_filter: String,
+  sink: Sink,
+) -> impl Subscriber + Sync + Send
 where
   Sink: for<'a> MakeWriter<'a> + Send + Sync + 'static,
 {

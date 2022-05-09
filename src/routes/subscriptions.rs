@@ -34,7 +34,10 @@ impl std::error::Error for StoreTokenError {
   }
 }
 
-fn error_chain_fmt(e: &impl std::error::Error, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+fn error_chain_fmt(
+  e: &impl std::error::Error,
+  f: &mut std::fmt::Formatter<'_>,
+) -> std::fmt::Result {
   writeln!(f, "{}\n", e)?;
   let mut current = e.source();
 
@@ -130,9 +133,14 @@ pub async fn subscribe(
     .commit()
     .await
     .context("Failed to insert new subscriber in the database.")?;
-  send_confirmation_email(&email_client, new_subscriber, &base_url.0, &subscription_token)
-    .await
-    .context("Failed to send a confirmation email.")?;
+  send_confirmation_email(
+    &email_client,
+    new_subscriber,
+    &base_url.0,
+    &subscription_token,
+  )
+  .await
+  .context("Failed to send a confirmation email.")?;
   Ok(HttpResponse::Ok().finish())
 }
 

@@ -43,7 +43,10 @@ impl EmailClient {
     self
       .http_client
       .post(&url)
-      .header("X-Postmark-Server-Token", self.authorization_token.expose_secret())
+      .header(
+        "X-Postmark-Server-Token",
+        self.authorization_token.expose_secret(),
+      )
       .json(&request_body)
       .send()
       .await?
