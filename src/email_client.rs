@@ -9,19 +9,16 @@ pub struct EmailClient {
     sender: SubscriberEmail,
     authorization_token: Secret<String>,
 }
+
 impl EmailClient {
     pub fn new(
         base_url: String,
         sender: SubscriberEmail,
         authorization_token: Secret<String>,
+        timeout: std::time::Duration,
     ) -> Self {
-        let http_client = Client::builder()
-            .timeout(std::time::Duration::from_secs(10))
-            .build()
-            .unwrap();
-
         Self {
-            http_client,
+            http_client: Client::builder().timeout(timeout).build().unwrap(),
             base_url,
             sender,
             authorization_token,
@@ -92,7 +89,12 @@ mod tests {
     }
 
     fn email_client(base_url: String) -> EmailClient {
-        EmailClient::new(base_url, email(), Secret::new(Faker.fake()))
+        EmailClient::new(
+            base_url,
+            email(),
+            Secret::new(Faker.fake()),
+            std::time::Duration::from_millis(100),
+        )
     }
 
     struct SendEmailBodyMatcher;
@@ -155,6 +157,7 @@ mod tests {
     async fn send_email_fails_if_the_server_returns_500() {
         let mock_server = MockServer::start().await;
         let email_client = email_client(mock_server.uri());
+
         Mock::given(any())
             .respond_with(ResponseTemplate::new(500))
             .expect(1)
