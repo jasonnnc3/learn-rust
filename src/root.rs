@@ -1,10 +1,17 @@
 use crate::email_client::EmailClient;
 use crate::routes::{health_check, subscribe};
 use actix_web::dev::Server;
-use actix_web::{web, App, HttpServer};
+use actix_web::http::StatusCode;
+use actix_web::{web, App, HttpResponse, HttpServer};
 use sqlx::PgPool;
 use std::net::TcpListener;
 use tracing_actix_web::TracingLogger;
+
+pub async fn home_page() -> HttpResponse {
+    HttpResponse::build(StatusCode::OK)
+        .content_type("text/html; charset=utf-8")
+        .body("<h1>hello from home page</h1>")
+}
 
 pub fn run(
     listener: TcpListener,
@@ -15,7 +22,7 @@ pub fn run(
     let server = HttpServer::new(move || {
         App::new()
             .wrap(TracingLogger::default())
-            .route("/", web::get().to(|| async { "hello from home page" }))
+            .route("/", web::get().to(home_page))
             .route("/health_check", web::get().to(health_check))
             .route("/subscriptions", web::post().to(subscribe))
             .app_data(db_pool.clone())
